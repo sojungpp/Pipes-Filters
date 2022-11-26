@@ -10,6 +10,7 @@ import java.io.PipedOutputStream;
 
 public abstract class CommonFilterImpl implements CommonFilter {
 	protected PipedInputStream in = new PipedInputStream();
+//	protected PipedInputStream in = new arraylist; + portNum 들어가야함, component고쳐주기! -> 다 고치기
 	protected PipedOutputStream out = new PipedOutputStream();
 
 	public void connectOutputTo(CommonFilter nextFilter) throws IOException {

@@ -5,14 +5,20 @@ package Components.Id;
 
 import java.io.IOException;
 
-import Commons.StudentData;
+import Common.StudentData;
 import Framework.CommonFilterImpl;
 
 public class IdFilter extends CommonFilterImpl{
 	
-	StudentData studentData = new StudentData();
-	
-    @Override
+	private String id;
+	private static StudentData studentData = new StudentData();
+
+	public IdFilter(String id) {
+		super();
+		this.id = id;
+	}
+
+	@Override
     public boolean specificComputationForFilter() throws IOException {
         int idx = 0;
         byte[] buffer = new byte[64];  
@@ -24,7 +30,7 @@ public class IdFilter extends CommonFilterImpl{
             }
             // 학번 필터
             String studentInfo = new String(buffer);
-            if(studentData.compareStudentYear(studentInfo, "2013")) {
+            if(studentData.compareStudentYear(studentInfo, id)) {
             	for(int i = 0; i<idx; i++) 
                     out.write((char)buffer[i]);
             };

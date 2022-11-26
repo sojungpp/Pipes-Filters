@@ -11,9 +11,14 @@ import Framework.CommonFilterImpl;
 
 public class DeleteFilter extends CommonFilterImpl{
 	
-	private final static ArrayList<String> compulsoryCourseList = new ArrayList<String>(Arrays.asList("17651", "17652"));
+	private List<String> compulsoryCourseList = new ArrayList<String>();
 	
-    @Override
+    public DeleteFilter(List<String> list) {
+		super();
+		this.compulsoryCourseList = list;
+	}
+
+	@Override
     public boolean specificComputationForFilter() throws IOException {
     	int checkBlank = 5; 
         int numOfBlank = 0;

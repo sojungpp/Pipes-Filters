@@ -3,6 +3,8 @@
  */
 package Framework;
 
+import java.util.Arrays;
+
 import Components.DeleteFilter.DeleteFilter;
 import Components.Id.IdFilter;
 import Components.Major.MajorFilter;
@@ -14,9 +16,9 @@ public class LifeCycleManager {
         try {
             CommonFilter filter1 = new SourceFilter("Students.txt");
             CommonFilter filter2 = new SinkFilter("Output.txt");
-            CommonFilter filter3 = new IdFilter();
-            CommonFilter filter4 = new MajorFilter();
-            CommonFilter filter5 = new DeleteFilter();
+            CommonFilter filter3 = new IdFilter("2013");
+            CommonFilter filter4 = new MajorFilter("EE");
+            CommonFilter filter5 = new DeleteFilter(Arrays.asList("17651", "17652"));
             
             filter1.connectOutputTo(filter3);
             filter3.connectOutputTo(filter4);

@@ -5,12 +5,18 @@ package Components.Major;
 
 import java.io.IOException;
 
-import Commons.StudentData;
+import Common.StudentData;
 import Framework.CommonFilterImpl;
 
 public class MajorFilter extends CommonFilterImpl{
 	
-	StudentData studentData = new StudentData();
+	private String major;
+	private static StudentData studentData = new StudentData();
+
+	public MajorFilter(String major) {
+		super();
+		this.major = major;
+	}
 	
     @Override
     public boolean specificComputationForFilter() throws IOException {
@@ -24,7 +30,7 @@ public class MajorFilter extends CommonFilterImpl{
             }
             // 학과 필터
             String studentInfo = new String(buffer);
-            if(studentData.compareStudentMajor(studentInfo, "EE")) {
+            if(studentData.compareStudentMajor(studentInfo, major)) {
             	for(int i = 0; i<idx; i++) 
                     out.write((char)buffer[i]);
             };
