@@ -5,6 +5,7 @@ package Framework;
 
 import java.util.Arrays;
 
+import Common.Constants;
 import Components.AddFilter.AddFilter;
 import Components.Id.IdFilter;
 import Components.Major.MajorFilter;
@@ -14,10 +15,10 @@ import Components.Source.SourceFilter;
 public class LifeCycleManager_A1 {
     public static void main(String[] args) {
         try {
-            CommonFilter filter1 = new SourceFilter("Students.txt");
-            CommonFilter filter2 = new SinkFilter("Output_A1.txt");
-            CommonFilter filter3 = new MajorFilter("CS");
-            CommonFilter filter4 = new AddFilter(Arrays.asList("12345", "23456"));
+            CommonFilter filter1 = new SourceFilter(Constants.STUDENT_SOURCE_FILE_NAME);
+            CommonFilter filter2 = new SinkFilter(Constants.OUTPUT_A1_FILE_NAME);
+            CommonFilter filter3 = new MajorFilter(Constants.CS);
+            CommonFilter filter4 = new AddFilter(Arrays.asList(Constants.CS_COMPULSORY_COURSE_LIST_1, Constants.CS_COMPULSORY_COURSE_LIST_2));
             
             filter1.connectOutputTo(filter3);
             filter3.connectOutputTo(filter4);
